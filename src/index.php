@@ -5,10 +5,6 @@ Dotenv\Dotenv::createImmutable(__DIR__)->load();
 
 require_once __DIR__.'/db.php';
 
-//echo "<pre>";
-//var_dump($_SERVER);
-//phpinfo();
-
 use Luracast\Restler\Defaults;
 use API\Restler\Restler;
 
@@ -17,6 +13,15 @@ use API\Restler\Restler;
 Defaults::$validatorClass = API\Restler\Validator::class;
 \Luracast\Restler\Compose::$includeDebugInfo = false;
 \Luracast\Restler\RestException::$codes[422] = 'Unprocessable entity';
+
+\Luracast\Restler\Explorer\Info::$title = 'API Explorer - Pessoas';
+\Luracast\Restler\Explorer\Info::$description = 'Rinha de backend Q3';
+\Luracast\Restler\Explorer\Info::$contactName = 'Igor Santos';
+\Luracast\Restler\Explorer\Info::$contactUrl = 'https://github.com/igorsantos07/';
+\Luracast\Restler\Explorer\Info::$contactEmail = null;
+\Luracast\Restler\Explorer\Info::$license = 'MIT';
+\Luracast\Restler\Explorer\Info::$licenseUrl = 'https://github.com/igorsantos07/rinha-de-backend/blob/main/LICENSE';
+
 
 //setup restler
 $r = new Restler(false);

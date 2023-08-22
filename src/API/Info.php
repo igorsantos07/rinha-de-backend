@@ -2,9 +2,10 @@
 class Info {
 
   /**
-   * Runs phpinfo()
+   * Roda o phpinfo() :)
    */
   public function index() {
-    phpinfo();
+	  /** @noinspection ForgottenDebugOutputInspection */
+	  phpinfo();
   }
 }

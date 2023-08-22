@@ -10,7 +10,7 @@ class Pessoas {
   public $restler;
 
   /**
-   * Retorna os dados de um registro.
+   * Retorna os dados de um registro
    * @param $id {string} {@from path} {@type uuid}
    * @throws 404 RestException ID não encontrada
    */
@@ -19,7 +19,7 @@ class Pessoas {
   }
   
   /**
-   * Cria um novo registro.
+   * Cria um novo registro
    * @param string $apelido
    * @param string $nome
    * @param string $nascimento {@type date}
