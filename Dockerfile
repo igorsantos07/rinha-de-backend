@@ -11,6 +11,7 @@ RUN mkdir -m777 /.composer \
 
 ## Installs extensions dependencies
 RUN apk add --no-cache \
+        unzip \
         postgresql-dev oniguruma-dev\
         curl-dev g++ autoconf make \
     && rm -rf /var/cache/apk/* \
@@ -37,5 +38,13 @@ RUN pecl install redis \
 RUN chmod 755 /root \
     && ln -s /root/.composer/vendor/bin/* /usr/local/bin/
 
-COPY conf/php-extras.ini /usr/local/etc/php/php-extras.ini
-COPY conf/opcache.ini /usr/local/etc/php/conf.d/opcache.ini
+COPY conf/php/php-extras.ini /usr/local/etc/php/php-extras.ini
+COPY conf/php/opcache.ini /usr/local/etc/php/conf.d/opcache.ini
+
+ENTRYPOINT cd /var/www \
+    && composer install \
+    && vendor/bin/phinx migrate \
+    && php-fpm
+
+# wouldn't be needed if we didn't need the ENTRYPOINT script, I guess
+#CMD php-fpm
