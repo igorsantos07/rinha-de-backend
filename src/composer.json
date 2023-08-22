@@ -1,0 +1,18 @@
+{
+    "require": {
+        "luracast/restler": "^5.0",
+        "illuminate/database": "^10.19",
+        "illuminate/support": "^10.19",
+        "robmorgan/phinx": "^0.13.4",
+        "vlucas/phpdotenv": "^5.5",
+        "ramsey/uuid": "^4.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "": "./"
+        }
+    },
+  "scripts": {
+        "phinx": "phinx -c migrations/phinx.php"
+  }
+}
